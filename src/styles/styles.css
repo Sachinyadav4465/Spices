@@ -1,0 +1,239 @@
+/* ==========================================
+   1. GLOBAL & COLORS (RESPONSIVE BASICS)
+   ========================================== */
+.bg-spices-red {
+    background-color: #D32F2F !important;
+}
+
+.bg-spices-dark {
+    background-color: #3E2723 !important;
+}
+
+/* Pura page ka background texture layout match karne ke liye */
+.bg-spices-light {
+    background-color: #F5EBE0 !important; 
+}
+
+.text-gold {
+    color: #FFB300 !important;
+}
+
+.text-xs {
+    font-size: 11px !important;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+/* ==========================================
+   2. BUTTONS & HOVERS
+   ========================================== */
+.btn-orange {
+    background-color: #FF9800 !important;
+    color: white !important;
+    border: none;
+}
+
+.btn-orange:hover {
+    background-color: #E65100 !important;
+}
+
+.hover-white:hover {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: all 0.2s ease-in-out;
+}
+
+/* ==========================================
+   3. HERO & CATEGORY CARDS (RESPONSIVE FIX)
+   ========================================== */
+.category-card {
+    border: none;
+    border-radius: 0;
+    color: white;
+}
+
+/* Card images cover adjustment */
+.object-cover {
+    object-fit: cover;
+}
+
+/* Mobile responsive slider text adjustment */
+@media (max-width: 768px) {
+    .bg-white.bg-opacity-75 {
+        margin: 10px !important;
+        padding: 15px !important;
+    }
+    
+    .bg-white.bg-opacity-75 h1 {
+        font-size: 1.8rem !important;
+    }
+    
+    /* Mobile me bottom navigation scrollable ho jaye break hone ki jagah */
+    .bg-spices-dark .nav {
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        white-space: nowrap;
+    }
+}
+
+/* ==========================================
+   4. PRODUCT SECTION & SIDEBAR TEXT TRUNCATION
+   ========================================== */
+
+/* Truncate text for descriptions so cards remain uniform */
+.text-wrap-3-lines {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+    min-height: 46px; 
+}
+
+/* Sidebar Best Seller Text truncation */
+.text-truncate-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+
+/* Image box container effects */
+.product-img-box {
+    border: 1px solid #E6E1DA !important;
+    background-color: #FDFBF7 !important;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Product card hover effect */
+.card.bg-white {
+    transition: all 0.2s ease-in-out;
+}
+
+.card.bg-white:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08) !important;
+    transform: translateY(-2px);
+}
+
+/* Best Sellers Side title background notch texture */
+.best-sellers-title {
+    background-color: #EFE5C9 !important;
+    border-left: 4px solid #3E2723 !important;
+    letter-spacing: 0.5px;
+}
+
+/* Mobile Optimization for Sidebar Products */
+@media (max-width: 576px) {
+    .col-md-3.text-end.d-flex {
+        justify-content: center !important;
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    /* Search Bar centering on mobile */
+    .col-md-6 {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+/* --- Custom Blocks Layout --- */
+.custom-block-box {
+    border-radius: 0 !important; /* Sharp corners straight from layout */
+    border: 1px dashed rgba(255, 255, 255, 0.2); /* Subtle inner stitch effect */
+}
+
+/* Bottom decorative border snippet */
+.custom-bottom-divider {
+    height: 6px;
+    background-image: linear-gradient(to right, #3E2723 33%, rgba(255, 255, 255, 0) 0%);
+    background-position: bottom;
+    background-size: 9px 3px;
+    background-repeat: repeat-x;
+    opacity: 0.3;
+}
+
+/* --- Individual Block Background Colors --- */
+.bg-block-1 {
+    background-color: #198754 !important; /* Bootstrap Success Green */
+}
+
+.bg-block-2 {
+    background-color: #3E2723 !important; /* Spices Custom Dark Brown */
+}
+
+.bg-block-3 {
+    background-color: #d83808 !important; /* Custom Orange */
+}
+
+/* --- Common Layout Rules --- */
+.custom-block-box {
+    border-radius: 0 !important; /* Sharp corners straight from layout */
+    border: 1px dashed rgba(255, 255, 255, 0.2); /* Subtle inner stitch effect */
+}
+
+.custom-bottom-divider {
+    height: 6px;
+    background-image: linear-gradient(to right, #3E2723 33%, rgba(255, 255, 255, 0) 0%);
+    background-position: bottom;
+    background-size: 9px 3px;
+    background-repeat: repeat-x;
+    opacity: 0.3;
+}
+
+/* Pura footer ka main background */
+.main-footer {
+    background-color: #fdd9d9 !important; 
+}
+
+/* Har link column ka alag background color badalne ke liye */
+.footer-col-1 {
+    background-color: transparent; /* Yahan color code daal sakte ho */
+}
+
+.footer-col-2 {
+    background-color: transparent;
+}
+
+.footer-col-3 {
+    background-color: transparent;
+}
+
+.footer-col-4 {
+    background-color: transparent;
+}
+
+/* Right side wale text/shipping box ka background color */
+.footer-right-box {
+    background-color: transparent; 
+}
+
+/* Footer bottom copyright row ka styling */
+.footer-copyright {
+    border-color: #eee !important;
+}
+
+/* Link Hover Effect */
+.footer-link:hover {
+    color: #FF9800 !important; /* Text hover par orange ho jayega */
+    text-decoration: underline !important;
+}
+/* --- Product Detail Custom Styling --- */
+.product-detail-img-box {
+    border: 1px solid #E6E1DA !important;
+    background-color: #FDFBF7 !important;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
+}
+
+/* Buy Now Button Styles */
+.btn-buy-now {
+    background-color: #3E2723 !important; /* Spices Dark Brown Accent */
+    color: #ffffff !important;
+    border: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-buy-now:hover {
+    background-color: #271815 !important; /* On hover thoda aur dark shade */
+    color: #FFB300 !important; /* Text gold accent double highlight toggling */
+}

@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+import { CartProvider } from './component/CartContext';
+import Navbar from './component/Navbar';
+import { Homepages } from './pages/Homepages';
+import ProductDetails from './pages/ProductDetails';
+import Login from './pages/Login';  // Login Import kiya
+import Signup from './pages/Signup'; // Signup Import kiya
+// import CustomBlocks from './pages/CustomBlocks';
+import Footer from './component/Footer';
+import CartDrawer from './component/CartDrawer';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CartProvider>
+      <Toaster /> 
+      <Router>
+        <div className="min-vh-100 bg-spices-light d-flex flex-column position-relative">
+          
+          <Navbar />
+          <CartDrawer />
+
+          <main className="flex-grow-1">
+            <Routes>
+              <Route path="/" element={<Homepages />} />
+              <Route path="/product/:id" element={<ProductDetails />} />
+              <Route path="/login" element={<Login />} />   {/* Path 1 */}
+              <Route path="/signup" element={<Signup />} /> {/* Path 2 */}
+            </Routes>
+          </main>
+
+          
+          <Footer />
+        </div>
+      </Router>
+    </CartProvider>
   );
-}
+};
 
 export default App;
