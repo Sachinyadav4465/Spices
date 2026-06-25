@@ -1,7 +1,7 @@
 import React from 'react';
 import { BiSearch, BiCartAlt } from 'react-icons/bi';
 import { FiChevronDown } from 'react-icons/fi';
-import { useCart } from '../component/CartContext'; // Path matching fixed based on app flow
+import { useCart } from '../component/CartContext'; 
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
@@ -11,11 +11,10 @@ const Navbar = () => {
 
     return (
         <header className="bg-spices-light border-bottom text-start">
-            
-            {/* TOP UTILITY BAR (Language & Currency) */}
+        
             <div className="container d-flex justify-content-between align-items-center py-2 small text-muted" style={{ fontSize: '12px' }}>
                 <div className="d-flex gap-4">
-                    {/* LANGUAGE DROPDOWN */}
+                
                     <div className="dropdown">
                         <span 
                             className="cursor-pointer dropdown-toggle text-muted text-decoration-none" 
@@ -24,7 +23,7 @@ const Navbar = () => {
                             id="languageDropdown"
                         >
                             Language: <span className="text-dark fw-semibold">English</span>
-                            {/* <FiChevronDown size={14} className="ms-1 text-dark" /> */}
+                           
                         </span>
                         <ul className="dropdown-menu rounded-0 shadow-sm border-light mt-2" style={{ fontSize: '13px' }}>
                             <li><button className="dropdown-item active bg-success" type="button">English</button></li>
@@ -43,7 +42,7 @@ const Navbar = () => {
                             id="currencyDropdown"
                         >
                             Currency: <span className="text-dark fw-semibold">USD</span>
-                            {/* <FiChevronDown size={14} className="ms-1 text-dark" /> */}
+                    
                         </span>
                         <ul className="dropdown-menu rounded-0 shadow-sm border-light mt-2" style={{ fontSize: '13px' }}>
                             <li><button className="dropdown-item active bg-success" type="button">USD ($)</button></li>
@@ -53,9 +52,9 @@ const Navbar = () => {
                         </ul>
                     </div>
                 </div>
-            </div> {/* <-- TOP BAR CLOSING FIX HERE */}
+            </div> 
 
-            {/* MAIN HEADER LOGO & SEARCH SEARCH AREA */}
+    
             <div className="container my-3">
                 <div className="row align-items-center g-3">
 
