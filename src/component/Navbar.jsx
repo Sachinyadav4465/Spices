@@ -1,20 +1,26 @@
 import React from 'react';
-import { BiSearch, BiCartAlt } from 'react-icons/bi';
+import { BiSearch, BiCartAlt, BiUserCircle } from 'react-icons/bi';
 import { FiChevronDown } from 'react-icons/fi';
 import { useCart } from '../component/CartContext'; 
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom'; 
 
 const Navbar = () => {
     const { openCart, cartItems } = useCart();
+    const location = useLocation(); 
+    
     const totalItemsCount = cartItems.reduce((acc, item) => acc + item.qty, 0);
     const totalPrice = cartItems.reduce((acc, item) => acc + parseFloat(item.price) * item.qty, 0).toFixed(2);
+
+    const isActive = (path) => location.pathname === path;
 
     return (
         <header className="bg-spices-light border-bottom text-start">
         
+            {/* TOP BAR: LANGUAGE & CURRENCY */}
             <div className="container d-flex justify-content-between align-items-center py-2 small text-muted" style={{ fontSize: '12px' }}>
                 <div className="d-flex gap-4">
                 
+                    {/* LANGUAGE DROPDOWN */}
                     <div className="dropdown">
                         <span 
                             className="cursor-pointer dropdown-toggle text-muted text-decoration-none" 
@@ -23,7 +29,6 @@ const Navbar = () => {
                             id="languageDropdown"
                         >
                             Language: <span className="text-dark fw-semibold">English</span>
-                           
                         </span>
                         <ul className="dropdown-menu rounded-0 shadow-sm border-light mt-2" style={{ fontSize: '13px' }}>
                             <li><button className="dropdown-item active bg-success" type="button">English</button></li>
@@ -42,7 +47,6 @@ const Navbar = () => {
                             id="currencyDropdown"
                         >
                             Currency: <span className="text-dark fw-semibold">USD</span>
-                    
                         </span>
                         <ul className="dropdown-menu rounded-0 shadow-sm border-light mt-2" style={{ fontSize: '13px' }}>
                             <li><button className="dropdown-item active bg-success" type="button">USD ($)</button></li>
@@ -54,7 +58,7 @@ const Navbar = () => {
                 </div>
             </div> 
 
-    
+            {/* MIDDLE BAR: LOGO, SEARCH, ACCOUNT, CART */}
             <div className="container my-3">
                 <div className="row align-items-center g-3">
 
@@ -83,15 +87,22 @@ const Navbar = () => {
                         </div>
                     </div>
 
-                    {/* Right Controls: Account & Red Cart Box */}
-                    <div className="col-lg-3 col-md-3 d-flex justify-content-end align-items-center gap-4">
-                        <div className="text-end">
-                            <Link to="/login" className="text-danger fw-bold text-decoration-none d-block small" style={{ fontSize: '13px' }}>
-                                Login
+                    {/* Right Controls: Profile, Account & Red Cart Box */}
+                    <div className="col-lg-3 col-md-3 d-flex justify-content-end align-items-center gap-3">
+                        
+                        {/* PROFILE ICON & USER LINKS */}
+                        <div className="d-flex align-items-center gap-2 text-end">
+                            <Link to="/profile" className="text-muted hover-orange" title="View Profile">
+                                <BiUserCircle size={32} className="text-secondary" />
                             </Link>
-                            <Link to="/signup" className="text-muted text-decoration-none" style={{ fontSize: '12px' }}>
-                                Your Account
-                            </Link>
+                            <div className="lh-sm">
+                                <Link to="/login" className="text-danger fw-bold text-decoration-none d-block small" style={{ fontSize: '13px' }}>
+                                    Login
+                                </Link>
+                                <Link to="/profile" className="text-muted text-decoration-none d-block" style={{ fontSize: '12px' }}>
+                                  
+                                </Link>
+                            </div>
                         </div>
 
                         {/* Red Cart Trigger Box */}
@@ -103,37 +114,79 @@ const Navbar = () => {
                             <div className="text-start lh-1 me-2">
                                 <span className="fw-bold d-block" style={{ fontSize: '11px', letterSpacing: '0.5px' }}>CART</span>
                                 <small className="text-white-80" style={{ fontSize: '11px' }}>
-                                    {totalItemsCount > 0 ? `${totalItemsCount} items - $${totalPrice}` : '(empty)'}
+                                    {totalItemsCount > 0 ? `${totalItemsCount} items - ₹${totalPrice}` : '(empty)'}
                                 </small>
                             </div>
                             <div className="d-flex align-items-center border-start border-white-50 ps-2 h-100">
                                 <BiCartAlt size={24} />
                             </div>
                         </div>
+                        
                     </div>
 
                 </div>
             </div>
 
-            {/* CATEGORY NAV MENU */}
+            {/* LOWER BAR: CATEGORY NAV MENU */}
             <nav className="bg-spices-dark shadow-sm">
                 <div className="container">
                     <ul className="nav align-items-center">
+                        
+                        {/* SPICES & HERBS */}
                         <li className="nav-item">
-                            <a className="nav-link active bg-success text-white px-4 py-3 rounded-0 fw-bold transition-all" style={{ fontSize: '14px', letterSpacing: '0.5px' }} href="#spices">SPICES & HERBS</a>
+                            <Link 
+                                to="/category/spices-herbs" 
+                                className={`nav-link px-4 py-3 rounded-0 fw-bold transition-all ${isActive('/category/spices-herbs') ? 'bg-success text-white' : 'text-white-50 hover-white'}`}
+                                style={{ fontSize: '14px', letterSpacing: '0.5px' }}
+                            >
+                                SPICES & HERBS
+                            </Link>
                         </li>
+                        
+                        {/* SEASONINGS */}
                         <li className="nav-item">
-                            <a className="nav-link text-white-50 px-4 py-3 fw-bold small hover-white" href="#seasonings">SEASONINGS</a>
+                            <Link 
+                                to="/category/seasonings" 
+                                className={`nav-link px-4 py-3 rounded-0 fw-bold transition-all ${isActive('/category/seasonings') ? 'bg-success text-white' : 'text-white-50 hover-white'}`}
+                                style={{ fontSize: '14px', letterSpacing: '0.5px' }}
+                            >
+                                SEASONINGS
+                            </Link>
                         </li>
+                        
+                        {/* CHILI POWDER */}
                         <li className="nav-item">
-                            <a className="nav-link text-white-50 px-4 py-3 fw-bold small hover-white" href="#chili">CHILI POWDER</a>
+                            <Link 
+                                to="/category/chili-powder" 
+                                className={`nav-link px-4 py-3 rounded-0 fw-bold transition-all ${isActive('/category/chili-powder') ? 'bg-success text-white' : 'text-white-50 hover-white'}`}
+                                style={{ fontSize: '14px', letterSpacing: '0.5px' }}
+                            >
+                                CHILI POWDER
+                            </Link>
                         </li>
+                        
+                        {/* CURRY POWDER */}
                         <li className="nav-item">
-                            <a className="nav-link text-white-50 px-4 py-3 fw-bold small hover-white" href="#curry">CURRY POWDER</a>
+                            <Link 
+                                to="/category/curry-powder" 
+                                className={`nav-link px-4 py-3 rounded-0 fw-bold transition-all ${isActive('/category/curry-powder') ? 'bg-success text-white' : 'text-white-50 hover-white'}`}
+                                style={{ fontSize: '14px', letterSpacing: '0.5px' }}
+                            >
+                                CURRY POWDER
+                            </Link>
                         </li>
+                        
+                        {/* HERB BLENDS */}
                         <li className="nav-item">
-                            <a className="nav-link text-white-50 px-4 py-3 fw-bold small hover-white" href="#herbs">HERB BLENDS</a>
+                            <Link 
+                                to="/category/herb-blends" 
+                                className={`nav-link px-4 py-3 rounded-0 fw-bold transition-all ${isActive('/category/herb-blends') ? 'bg-success text-white' : 'text-white-50 hover-white'}`}
+                                style={{ fontSize: '14px', letterSpacing: '0.5px' }}
+                            >
+                                HERB BLENDS
+                            </Link>
                         </li>
+
                     </ul>
                 </div>
             </nav>

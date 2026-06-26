@@ -1,10 +1,13 @@
 import React from 'react';
 import { BiX, BiTrash } from 'react-icons/bi';
 import { useCart } from '../component/CartContext';
+import { Link } from 'react-router-dom';
 
 const CartDrawer = () => {
   const { isCartOpen, closeCart, cartItems, removeFromCart } = useCart();
-
+const handleClose = () => {
+    closeCart(false); // Agar Offcanvas/Modal show state se control ho raha hai
+};
   const items = cartItems || [];
   const totalPrice = items.reduce((acc, item) => acc + parseFloat(item.price) * item.qty, 0).toFixed(2);
 
@@ -46,7 +49,7 @@ const CartDrawer = () => {
                   <div className="flex-grow-1 text-start" style={{ fontSize: '13px' }}>
                     <div className="fw-bold text-dark text-truncate" style={{ maxWidth: '180px' }}>{item.title}</div>
                     <div className="text-muted my-1">Qty: {item.qty}</div>
-                    <div className="fw-bold text-danger">${item.price}</div>
+                    <div className="fw-bold text-danger">₹{item.price}</div>
                   </div>
             
                   <button className="btn btn-link text-muted p-1" onClick={() => removeFromCart(item.id, item.title)}>
@@ -62,11 +65,17 @@ const CartDrawer = () => {
           <div className="p-3 border-top bg-light">
             <div className="d-flex justify-content-between align-items-center mb-3">
               <span className="fw-bold text-uppercase small">Subtotal:</span>
-              <span className="fw-bold text-danger fs-5">${totalPrice}</span>
+              <span className="fw-bold text-danger fs-5">₹{totalPrice}</span>
             </div>
-            <button className="btn btn-orange rounded-0 w-100 text-uppercase fw-bold py-2 mb-2" style={{ fontSize: '13px' }}>
-              Proceed To Checkout
-            </button>
+           <Link to="/checkout" className="text-decoration-none">
+    <button
+        className="btn btn-orange rounded-0 w-100 text-uppercase fw-bold py-2 mb-2"
+        onClick={handleClose}   // Modal/Offcanvas close karega
+        style={{ fontSize: '13px' }}
+    >
+        Proceed To Checkout
+    </button>
+</Link>
           </div>
         )}
       </div>

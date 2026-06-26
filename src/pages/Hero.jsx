@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
     return (
@@ -18,7 +19,8 @@ const Hero = () => {
                             <h5 className="text-muted text-uppercase mb-1">The only place to</h5>
                             <h1 className="fw-bold text-dark mb-3">GO FOR SPICES</h1>
                             <p className="text-muted small">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <button className="btn btn-orange px-4 py-2 mt-2 rounded-0 text-uppercase fw-bold">Shop Now!</button>
+                            
+                            <Link to={"/shop"} ><button className="btn btn-orange px-4 py-2 mt-2 rounded-0 text-uppercase fw-bold">Shop Now!</button></Link>
                         </div>
                     </div>
                     <button className="btn btn-light position-absolute top-50 start-0 translate-middle-y rounded-0 ms-3 shadow-sm d-flex align-items-center justify-content-center p-2" type="button">
@@ -32,12 +34,12 @@ const Hero = () => {
                     {/* Card 1 */}
                     <div className="col-md-4">
                         <div className="card category-card bg-dark position-relative overflow-hidden" style={{ height: '160px' }}>
-                            <img src="https://images.unsplash.com/photo-1532336414038-cf19250c5757?q=80&w=500" className="card-img w-100 h-100 object-cover opacity-75" alt="Spices" />
-                            <div className="card-img-overlay d-flex flex-column justify-content-end p-3 bg-spices-dark bg-opacity-50">
+                            <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=500" className="card-img w-100 h-100 object-cover opacity-75" alt="Spices" />
+                            <div className="card-img-overlay d-flex flex-column justify-content-end p-3 bg-spices bg-opacity-50">
                                 <h5 className="card-title mb-0 fw-bold text-white">SPICES & HERBS</h5>
                                 <div className="d-flex justify-content-between align-items-center mt-1">
-                                    <small className="text-gold">GET UP TO 50% OFF</small>
-                                    <a href="#shop" className="text-white text-decoration-none small border-bottom">SHOP NOW!</a>
+                                    <small className="text-black fw-semibold">GET UP TO 50% OFF</small>
+                                    <a href="#shop" className="text-black fw-semibold text-decoration-none small border-bottom">SHOP NOW!</a>
                                 </div>
                             </div>
                         </div>
@@ -50,8 +52,8 @@ const Hero = () => {
                             <div className="card-img-overlay d-flex flex-column justify-content-end p-3 bg-success bg-opacity-50">
                                 <h5 className="card-title mb-0 fw-bold text-white">SEASONINGS</h5>
                                 <div className="d-flex justify-content-between align-items-center mt-1">
-                                    <small className="text-warning">GET UP TO 50% OFF</small>
-                                    <a href="#shop" className="text-white text-decoration-none small border-bottom">SHOP NOW!</a>
+                                    <small className="text-black fw-semibold">GET UP TO 50% OFF</small>
+                                    <a href="#shop" className="text-black fw-semibold text-decoration-none small border-bottom">SHOP NOW!</a>
                                 </div>
                             </div>
                         </div>
@@ -64,8 +66,8 @@ const Hero = () => {
                             <div className="card-img-overlay d-flex flex-column justify-content-end p-3 bg-danger bg-opacity-50">
                                 <h5 className="card-title mb-0 fw-bold text-white">CHILI POWDER</h5>
                                 <div className="d-flex justify-content-between align-items-center mt-1">
-                                    <small className="text-warning">GET UP TO 50% OFF</small>
-                                    <a href="#shop" className="text-white text-decoration-none small border-bottom">SHOP NOW!</a>
+                                    <small className="text-black fw-semibold">GET UP TO 50% OFF</small>
+                                    <a href="#shop" className="text-black fw-semibold text-decoration-none small border-bottom">SHOP NOW!</a>
                                 </div>
                             </div>
                         </div>

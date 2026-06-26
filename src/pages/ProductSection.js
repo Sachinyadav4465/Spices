@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BiCart, BiSolidZap } from 'react-icons/bi';
-import { useCart } from '../component/CartContext'; // Path updated if needed
+import { useCart } from '../component/CartContext'; 
 
 export const featuredProductsData = [
     { id: 1, title: 'Excepteur sint occaecat', desc: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui.', price: '58.96', oldPrice: null, img: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=400' },

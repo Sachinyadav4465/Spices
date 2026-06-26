@@ -8,9 +8,12 @@ import ProductDetails from './pages/ProductDetails';
 import Login from './pages/Login';  // Login Import kiya
 import Signup from './pages/Signup'; // Signup Import kiya
 // import CustomBlocks from './pages/CustomBlocks';
+import ShopPage from './pages/ShopPage';
 import Footer from './component/Footer';
 import CartDrawer from './component/CartDrawer';
-
+import CategoryPage from './pages/CategoryPage';
+import ProfilePage from './pages/ProfilePage';
+import CheckoutPage from './pages/CheckoutPage';
 const App = () => {
   return (
     <CartProvider>
@@ -27,6 +30,10 @@ const App = () => {
               <Route path="/product/:id" element={<ProductDetails />} />
               <Route path="/login" element={<Login />} />   {/* Path 1 */}
               <Route path="/signup" element={<Signup />} /> {/* Path 2 */}
+              <Route path='/shop' element={<ShopPage/>}/>
+              <Route path="/category/:categoryName" element={<CategoryPage />} />
+              <Route path='/profile' element={<ProfilePage/>}/>
+              <Route path='/checkout' element={<CheckoutPage/>}/>
             </Routes>
           </main>
 
