@@ -14,6 +14,9 @@ import CartDrawer from './component/CartDrawer';
 import CategoryPage from './pages/CategoryPage';
 import ProfilePage from './pages/ProfilePage';
 import CheckoutPage from './pages/CheckoutPage';
+import WhatsappIcon from "./component/WhatsappIcon";
+
+
 const App = () => {
   return (
     <CartProvider>
@@ -39,6 +42,7 @@ const App = () => {
 
           
           <Footer />
+     <WhatsappIcon />
         </div>
       </Router>
     </CartProvider>

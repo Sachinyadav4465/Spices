@@ -237,3 +237,38 @@
     background-color: #271815 !important; /* On hover thoda aur dark shade */
     color: #FFB300 !important; /* Text gold accent double highlight toggling */
 }
+.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 6px 15px rgba(0,0,0,.3);
+  z-index: 9999;
+  transition: .3s;
+  animation: whatsappPulse 1.8s infinite;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  color: #fff;
+}
+
+@keyframes whatsappPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37,211,102,.6);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(37,211,102,0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37,211,102,0);
+  }
+}
